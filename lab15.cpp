@@ -2,9 +2,49 @@
 using namespace std;
 
 // Function prototypes
-void getInfo(int&, int&);
-double computeWays(int, int);
-double factorial(int);
+void getInfo(int &n, int &k){
+cout << "How many balls (1-12) are in the pool to pick from?" << endl;
+      cin >> n;
+    cout << "How many balls (1- " << n << ") will be drawn? " << endl;
+    cin >> k;
+
+  while (true) {
+      cout << "How many balls (1-12) are in the pool to pick from?" << endl;
+      cin >> n;
+      if (n > 12 or n < 1){
+          cout << "Input Error!" << endl;
+      }
+      else{
+          break;
+      }
+  }
+    while (true) {
+        cout << "How many balls (1- " << n << ") will be drawn? " << endl;
+        cin >> k;
+        if (k > n or k < 1){
+            cout << "Input Error!" << endl;
+        }
+        else{
+            break;
+        }
+    }
+}
+long long factorial(int number) {
+    if (number <= 1) {
+        return 1;
+    }
+    else {
+        return number * factorial(number - 1);
+    }
+}
+
+double computeWays(int n, int k) {
+    double value;
+    value = 1/(factorial(n)/(factorial(k)*factorial(n-k)));
+    return value;
+}
+
+
 
 /*******************************************************************
 * getLotteryInfo                                                   *
