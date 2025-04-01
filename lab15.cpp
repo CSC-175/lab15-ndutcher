@@ -3,11 +3,6 @@ using namespace std;
 
 // Function prototypes
 void getInfo(int &n, int &k){
-cout << "How many balls (1-12) are in the pool to pick from?" << endl;
-      cin >> n;
-    cout << "How many balls (1- " << n << ") will be drawn? " << endl;
-    cin >> k;
-
   while (true) {
       cout << "How many balls (1-12) are in the pool to pick from?" << endl;
       cin >> n;
@@ -29,8 +24,9 @@ cout << "How many balls (1-12) are in the pool to pick from?" << endl;
         }
     }
 }
-long long factorial(int number) {
-    if (number <= 1) {
+
+double factorial(int number) {
+    if (number ==0 || number == 1) {
         return 1;
     }
     else {
@@ -40,7 +36,7 @@ long long factorial(int number) {
 
 double computeWays(int n, int k) {
     double value;
-    value = 1/(factorial(n)/(factorial(k)*factorial(n-k)));
+    value = ((factorial(k)*factorial(n-k))/factorial(n));
     return value;
 }
 
